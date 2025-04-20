@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure for the linked list
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// Function to create a new node
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to convert a 2D matrix to a singly linked list
+Node* matrixToLinkedList(int rows, int cols, int matrix[rows][cols]) {
+    Node* head = NULL;
+    Node* tail = NULL;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            Node* newNode = createNode(matrix[i][j]);
+
+            if (head == NULL) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail->next = newNode;
+                tail = newNode;
+            }
+        }
+    }
+    return head;
+}
+
+// Function to convert a singly linked list to a circular linked list
+void convertToCircular(Node* head) {
+    if (head == NULL) return;
+
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = head;  // Connect last node to the head
+}
+
+// Function to display the linked list (for circular, stops after one full cycle)
+void displayLinkedList(Node* head) {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    Node* temp = head;
+    do {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    } while (temp != head && temp != NULL);
+
+    printf("(Back to Head)\n");
+}
+
+// Main function
+int main() {
+    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};  // 2D matrix
+
+    // Convert matrix to linked list
+    Node* head = matrixToLinkedList(2, 3, matrix);
+    
+    printf("Singly Linked List:\n");
+    displayLinkedList(head);
+
+    // Convert to circular linked list
+    convertToCircular(head);
+    
+    printf("Circular Linked List:\n");
+    displayLinkedList(head);
+
+    return 0;
+}

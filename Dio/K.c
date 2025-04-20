@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void  num(int n){
+    if(n<0){
+        return;
+    }
+    
+    num(n-1);
+    printf("%d ", n);
+}
+
+int main(){
+
+    int n,result;
+
+    printf("Enter the limit of the series: ");
+    scanf("%d",&n);
+
+    printf("The list of numbners: ",n);
+    num(n);
+    
+    return 0;
+}
