@@ -8,7 +8,7 @@ typedef struct
     int src, dest, weight;
 } Edge;
 
-typedef struct
+typedef struct  
 {
     int V, E;
     Edge edges[MAX];

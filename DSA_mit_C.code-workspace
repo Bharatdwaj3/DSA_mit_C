@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"Striver_Simple_LL.C": "cpp",
+			"mYAS.C": "cpp"
+		},
+		"augment.enableEmptyFileHint": false,
+		"augment.completions.enableAutomaticCompletions": false
+	}
+}

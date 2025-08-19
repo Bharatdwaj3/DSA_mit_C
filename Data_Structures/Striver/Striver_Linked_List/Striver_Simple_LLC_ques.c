@@ -400,7 +400,7 @@ struct Node *getIntersectionPoint(struct Node *head1, struct Node *head2)
     return NULL;
 }
 
-// Function to add 1 to a number represented by a linked list
+// Function to add 1 to a number represented by a linked listn
 void addOne(struct Node *head)
 {
     struct Node *temp = head, *prev = NULL;
@@ -460,6 +460,8 @@ struct Node *addTwoNumbers(struct Node *head1, struct Node *head2)
 
     return result;
 }
+
+
 
 int main()
 {
